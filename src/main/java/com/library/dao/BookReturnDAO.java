@@ -38,7 +38,7 @@ public class BookReturnDAO {
             try {
                 int bookId;
 
-                // Lock the issue record to prevent duplicate returns.
+               
                 try (PreparedStatement statement =
                              connection.prepareStatement(findIssueSql)) {
 
@@ -55,7 +55,7 @@ public class BookReturnDAO {
                     }
                 }
 
-                // Restore one available copy.
+               
                 try (PreparedStatement statement =
                              connection.prepareStatement(updateBookSql)) {
 
@@ -67,7 +67,7 @@ public class BookReturnDAO {
                     }
                 }
 
-                // Mark the issue as returned.
+                
                 try (PreparedStatement statement =
                              connection.prepareStatement(updateIssueSql)) {
 
