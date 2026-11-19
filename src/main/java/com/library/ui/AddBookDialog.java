@@ -22,10 +22,7 @@ public class AddBookDialog extends JDialog {
 
     private BookDAO bookDAO;
 
-    // =====================================================
-    // CONSTRUCTOR
-    // =====================================================
-
+   
     public AddBookDialog(JFrame parent) {
 
         super(
@@ -54,10 +51,7 @@ public class AddBookDialog extends JDialog {
                 )
         );
 
-        // =================================================
-        // TITLE
-        // =================================================
-
+       
         JLabel title =
                 new JLabel("Add New Book");
 
@@ -73,10 +67,6 @@ public class AddBookDialog extends JDialog {
                 title,
                 BorderLayout.NORTH
         );
-
-        // =================================================
-        // FORM
-        // =================================================
 
         JPanel formPanel =
                 new JPanel(
@@ -97,7 +87,6 @@ public class AddBookDialog extends JDialog {
                 )
         );
 
-        // ISBN
 
         formPanel.add(
                 new JLabel("ISBN:")
@@ -110,8 +99,6 @@ public class AddBookDialog extends JDialog {
                 isbnField
         );
 
-        // TITLE
-
         formPanel.add(
                 new JLabel("Book Title:")
         );
@@ -123,7 +110,7 @@ public class AddBookDialog extends JDialog {
                 titleField
         );
 
-        // AUTHOR
+      
 
         formPanel.add(
                 new JLabel("Author:")
@@ -136,7 +123,7 @@ public class AddBookDialog extends JDialog {
                 authorField
         );
 
-        // CATEGORY
+        
 
         formPanel.add(
                 new JLabel("Category:")
@@ -159,7 +146,7 @@ public class AddBookDialog extends JDialog {
                 categoryBox
         );
 
-        // PUBLISHER
+        
 
         formPanel.add(
                 new JLabel("Publisher:")
@@ -172,7 +159,7 @@ public class AddBookDialog extends JDialog {
                 publisherField
         );
 
-        // PUBLICATION YEAR
+        
 
         formPanel.add(
                 new JLabel("Publication Year:")
@@ -185,7 +172,7 @@ public class AddBookDialog extends JDialog {
                 yearField
         );
 
-        // TOTAL COPIES
+        
 
         formPanel.add(
                 new JLabel("Total Copies:")
@@ -198,7 +185,7 @@ public class AddBookDialog extends JDialog {
                 copiesField
         );
 
-        // SHELF
+        
 
         formPanel.add(
                 new JLabel("Shelf Number:")
@@ -216,10 +203,7 @@ public class AddBookDialog extends JDialog {
                 BorderLayout.CENTER
         );
 
-        // =================================================
-        // BUTTONS
-        // =================================================
-
+        
         JPanel buttonPanel =
                 new JPanel(
                         new FlowLayout(
@@ -246,18 +230,12 @@ public class AddBookDialog extends JDialog {
                 BorderLayout.SOUTH
         );
 
-        // =================================================
-        // CANCEL
-        // =================================================
-
+      
         cancelButton.addActionListener(
                 e -> dispose()
         );
 
-        // =================================================
-        // SAVE
-        // =================================================
-
+      
         saveButton.addActionListener(
                 e -> saveBook()
         );
@@ -265,10 +243,7 @@ public class AddBookDialog extends JDialog {
         add(mainPanel);
     }
 
-    // =====================================================
-    // SAVE BOOK
-    // =====================================================
-
+   
     private void saveBook() {
 
         String isbn =
@@ -292,10 +267,7 @@ public class AddBookDialog extends JDialog {
         String shelf =
                 shelfField.getText().trim();
 
-        // =================================================
-        // VALIDATION
-        // =================================================
-
+        
         if (isbn.isEmpty()
                 || title.isEmpty()
                 || author.isEmpty()
@@ -314,10 +286,7 @@ public class AddBookDialog extends JDialog {
             return;
         }
 
-        // =================================================
-        // CONVERT NUMBERS
-        // =================================================
-
+       
         try {
 
             int publicationYear =
@@ -326,10 +295,7 @@ public class AddBookDialog extends JDialog {
             int totalCopies =
                     Integer.parseInt(copies);
 
-            // =================================================
-            // VALIDATE YEAR
-            // =================================================
-
+            
             if (publicationYear <= 0) {
 
                 JOptionPane.showMessageDialog(
@@ -342,10 +308,7 @@ public class AddBookDialog extends JDialog {
                 return;
             }
 
-            // =================================================
-            // VALIDATE COPIES
-            // =================================================
-
+           
             if (totalCopies <= 0) {
 
                 JOptionPane.showMessageDialog(
@@ -358,10 +321,7 @@ public class AddBookDialog extends JDialog {
                 return;
             }
 
-            // =================================================
-            // CREATE BOOK OBJECT
-            // =================================================
-
+           
             Book book =
                     new Book();
 
@@ -395,10 +355,7 @@ public class AddBookDialog extends JDialog {
 
             book.setShelf(shelf);
 
-            // =================================================
-            // SAVE TO DATABASE
-            // =================================================
-
+           
             boolean saved =
                     bookDAO.addBook(book);
 
@@ -436,19 +393,13 @@ public class AddBookDialog extends JDialog {
         }
     }
 
-    // =====================================================
-    // CHECK WHETHER BOOK WAS SAVED
-    // =====================================================
-
+  
     public boolean isBookSaved() {
 
         return bookSaved;
     }
 
-    // =====================================================
-    // GET BOOK DATA
-    // =====================================================
-
+   
     public Object[] getBookData() {
 
         String copies =
