@@ -12,11 +12,7 @@ import java.time.LocalDate;
 
 public class BookIssueDAO {
 
-    /**
-     * Issues a book to a member.
-     * Saves the transaction and decreases available copies
-     * within the same database transaction.
-     */
+ 
     public boolean issueBook(
             int memberId,
             int bookId,
@@ -45,7 +41,7 @@ public class BookIssueDAO {
             connection.setAutoCommit(false);
 
             try {
-                // Verify that the member exists and is active.
+              
                 try (PreparedStatement statement =
                              connection.prepareStatement(checkMemberSql)) {
 
@@ -63,7 +59,7 @@ public class BookIssueDAO {
                     }
                 }
 
-                // Reduce availability only when at least one copy remains.
+                
                 try (PreparedStatement statement =
                              connection.prepareStatement(reduceCopiesSql)) {
 
@@ -77,7 +73,7 @@ public class BookIssueDAO {
                     }
                 }
 
-                // Record the issue.
+               
                 try (PreparedStatement statement =
                              connection.prepareStatement(insertIssueSql)) {
 
