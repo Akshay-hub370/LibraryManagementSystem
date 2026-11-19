@@ -82,7 +82,7 @@ public class Book {
         return shelf;
     }
 
-    // ================= SETTERS =================
+   
 
     public void setId(int id) {
         this.id = id;
