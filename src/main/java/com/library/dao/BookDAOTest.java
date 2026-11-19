@@ -9,7 +9,7 @@ public class BookDAOTest {
 
         BookDAO bookDAO = new BookDAO();
 
-        // Create a test book
+       
         Book book = new Book();
 
         book.setIsbn("9780134685991");
@@ -22,12 +22,12 @@ public class BookDAOTest {
         book.setAvailableCopies(5);
         book.setShelf("A-01");
 
-        // Add book
+        
         boolean added = bookDAO.addBook(book);
 
         System.out.println("Book Added: " + added);
 
-        // Retrieve all books
+       
         List<Book> books = bookDAO.getAllBooks();
 
         System.out.println();
