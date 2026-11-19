@@ -9,10 +9,6 @@ import java.util.List;
 
 public class BookDAO {
 
-    // =====================================================
-    // GET ALL BOOKS
-    // =====================================================
-
     public List<Book> getAllBooks() {
 
         List<Book> books = new ArrayList<>();
@@ -61,10 +57,7 @@ public class BookDAO {
         return books;
     }
 
-    // =====================================================
-    // ADD BOOK
-    // =====================================================
-
+ 
     public boolean addBook(Book book) {
 
         String sql = """
@@ -110,10 +103,6 @@ public class BookDAO {
             return false;
         }
     }
-
-    // =====================================================
-    // UPDATE BOOK
-    // =====================================================
 
     public boolean updateBook(Book book) {
 
@@ -165,10 +154,7 @@ public class BookDAO {
         }
     }
 
-    // =====================================================
-    // DELETE BOOK
-    // =====================================================
-
+    
     public boolean deleteBook(int id) {
 
         String sql =
