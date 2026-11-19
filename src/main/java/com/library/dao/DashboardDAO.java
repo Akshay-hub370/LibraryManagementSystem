@@ -31,7 +31,7 @@ public int getOverdueCount() throws SQLException {
 
     return 0;
 }
-    // Holds the four dashboard statistics.
+    
     public static class DashboardStats {
         private int totalBookTitles;
         private int availableCopies;
@@ -55,7 +55,7 @@ public int getOverdueCount() throws SQLException {
         }
     }
 
-    // Holds one recent transaction.
+    
     public static class RecentTransaction {
         private int issueId;
         private String memberName;
@@ -84,7 +84,6 @@ public int getOverdueCount() throws SQLException {
         }
     }
 
-    // Fetch live dashboard counts.
     public DashboardStats getDashboardStats() throws SQLException {
         DashboardStats stats = new DashboardStats();
 
@@ -121,7 +120,7 @@ public int getOverdueCount() throws SQLException {
         return stats;
     }
 
-    // Fetch the latest transactions.
+  
     public List<RecentTransaction> getRecentTransactions(int limit)
             throws SQLException {
 
