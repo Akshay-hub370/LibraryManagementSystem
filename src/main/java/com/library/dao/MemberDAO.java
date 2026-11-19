@@ -13,7 +13,7 @@ import java.util.List;
 
 public class MemberDAO {
 
-    // Fetch all members from MySQL
+   
     public List<Member> getAllMembers() {
         List<Member> members = new ArrayList<>();
 
@@ -52,7 +52,6 @@ public class MemberDAO {
         return members;
     }
 
-    // Insert a new member
     public boolean addMember(Member member) {
         String sql = "INSERT INTO members "
                    + "(member_code, name, roll_number, department, "
@@ -80,7 +79,7 @@ public class MemberDAO {
         }
     }
 
-    // Update an existing member
+   
     public boolean updateMember(Member member) {
         String sql = "UPDATE members SET member_code = ?, name = ?, "
                    + "roll_number = ?, department = ?, phone = ?, "
@@ -108,7 +107,7 @@ public class MemberDAO {
         }
     }
 
-    // Delete a member by database ID
+    
     public boolean deleteMember(int id) {
         String sql = "DELETE FROM members WHERE id = ?";
 
